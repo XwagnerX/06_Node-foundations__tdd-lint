@@ -6,3 +6,23 @@
  * output: string
  * validate input: throw TypeError with message "expected array but received <type-of-argument>" if input is not an array
  */
+
+/**
+ * transforms collection into string, if array has elements, then return array as string, joined by '|', otherwise, return an empty string
+ * @param {Array} collection
+ * @returns {string}
+ * @throws {TypeError}
+ */
+const transformCollectionToString = (collection) => {
+  if (!Array.isArray(collection)) {
+    throw new TypeError(`expected array but received ${typeof collection}`);
+  }
+
+  if (collection.length > 0) {
+    return collection.join(" | ");
+  }
+
+  return "";
+};
+
+export default transformCollectionToString;
